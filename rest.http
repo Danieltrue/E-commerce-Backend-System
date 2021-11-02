@@ -1,0 +1,26 @@
+GET http://localhost:2000
+
+###
+POST http://localhost:2000/api/v1/product
+Content-Type: application/json
+
+{
+    "name": "Nike Recon",
+    "image": "https://static.highsnobiety.com/thumbor/eUe8r1r2hREzAyuoDh8Lqy0LK7k=/1600x1067/static.highsnobiety.com/wp-content/uploads/2018/05/21122329/white-nikes-main1.jpg",
+    "countInStock": 10
+}
+
+###
+POST http://127.0.0.1:2000/api/v1/category
+Content-Type: application/json
+
+{
+    "name": "Foods and Drinks",
+    "color": "Nill",
+    "icon": "^",
+    "image": "This is a image"
+
+}
+
+###
+DELETE http://127.0.0.1:2000/api/v1/category/6181322cc1483872d6d3046c

@@ -1,26 +1,61 @@
+#Make a major request
 GET http://localhost:2000
 
 ###
-POST http://localhost:2000/api/v1/product
-Content-Type: application/json
-
-{
-    "name": "Nike Recon",
-    "image": "https://static.highsnobiety.com/thumbor/eUe8r1r2hREzAyuoDh8Lqy0LK7k=/1600x1067/static.highsnobiety.com/wp-content/uploads/2018/05/21122329/white-nikes-main1.jpg",
-    "countInStock": 10
-}
 
 ###
+#Add Category
 POST http://127.0.0.1:2000/api/v1/category
 Content-Type: application/json
 
 {
-    "name": "Foods and Drinks",
-    "color": "Nill",
-    "icon": "^",
-    "image": "This is a image"
+    "name": "Shoes",
+    "color": "Black",
+    "icon": "Boot-icon",
+    "image": "text of an image"
 
+}
+###
+#Delete Category By ID
+DELETE http://127.0.0.1:2000/api/v1/category/
+
+
+#get Category
+#get Single Category
+###
+GET http://127.0.0.1:2000/api/v1/category/
+
+#Update Category
+###
+
+PUT http://127.0.0.1:2000/api/v1/category/61825f427ae6ccb27277b57c
+Content-Type: application/json
+
+{
+    "name": "New Cars",
+    "color": "Golden",
+    "icon": "car-icon",
+    "image": "New Image has been uploaded"
 }
 
 ###
-DELETE http://127.0.0.1:2000/api/v1/category/6181322cc1483872d6d3046c
+#add a Product
+POST http://localhost:2000/api/v1/product
+Content-Type: application/json
+
+{
+    "name":"Nike Resolve",
+    "description": "Nike Resolve has value",
+    "richDescrption": "Understanding the step is worth the kill",
+    "image": "This is a nike resolve image",
+    "images": "More Image",
+    "brand": "Nike",
+    "Price": 120000,
+    "category": "shoes",
+    "countInStock": 92,
+    "rating": 5,
+    "numReview": 12,
+    "isFeatured": true
+}
+
+

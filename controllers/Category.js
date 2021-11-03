@@ -5,7 +5,6 @@ const category = require("../model/category");
 exports.addCategory = async (req, res, next) => {
   try {
     res.status(200);
-    console.log(req.body);
 
     const categoryData = await category.create({
       name: req.body.name.toLowerCase(),

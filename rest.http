@@ -44,7 +44,36 @@ POST http://localhost:2000/api/v1/product
 Content-Type: application/json
 
 {
-    "name":"Nike Resolve",
+    "name":"Compact",
+    "description": "Compact Resolve has value",
+    "richDescrption": "Understanding the step is worth the kill",
+    "image": "This is a Compact resolve image",
+    "images": "More Image",
+    "brand": "Nike",
+    "Price": 120000,
+    "category": "shoes",
+    "countInStock": 92,
+    "rating": 5,
+    "numReview": 12,
+    "isFeatured": true
+}
+
+
+###
+#Get Single Product by :id
+GET http://localhost:2000/api/v1/product/618274e62faceb8cdc940b0b
+
+###
+#Get all Product 
+GET http://localhost:2000/api/v1/product
+
+###
+#Update the product
+PUT http://localhost:2000/api/v1/product/618274e62faceb8cdc940b0b
+Content-Type: application/json
+
+{
+    "name":"Nike Resolve Cardio",
     "description": "Nike Resolve has value",
     "richDescrption": "Understanding the step is worth the kill",
     "image": "This is a nike resolve image",
@@ -59,3 +88,7 @@ Content-Type: application/json
 }
 
 
+
+###
+#Get Featured Product
+GET http://localhost:2000/api/v1/product/featured

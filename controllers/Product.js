@@ -57,7 +57,12 @@ exports.getSingleProduct = async (req, res, next) => {
 //@Access Public
 exports.getProduct = async (req, res, next) => {
   try {
-    const productData = await product.find();
+    let filter = {};
+
+    if (req.query.category) {
+      filter = { category: req.query.category.split(",") };
+    }
+    const productData = await product.find(filter);
 
     await res.status(200).json({
       success: true,

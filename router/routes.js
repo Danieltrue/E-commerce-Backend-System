@@ -15,6 +15,7 @@ const {
   getCategory,
   updateCategory,
 } = require("../controllers/Category");
+const { registerUser, getAllUser, loginUser } = require("../controllers/User");
 //product route
 router.route("/product").post(addProduct).get(getProduct);
 router.route("/product/featured").get(featuredProduct);
@@ -26,5 +27,9 @@ router
   .delete(deleteCategory)
   .get(getCategory)
   .put(updateCategory);
+//user route
+router.route("/user/register").post(registerUser);
+router.route("/user/login").post(loginUser);
+router.route("/user").get(getAllUser);
 
 module.exports = router;

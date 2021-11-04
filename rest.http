@@ -68,6 +68,10 @@ GET http://localhost:2000/api/v1/product/618274e62faceb8cdc940b0b
 GET http://localhost:2000/api/v1/product
 
 ###
+#Get all product by category id
+GET http://localhost:2000/api/v1/product?category=6182739592bb0f9cadb45473
+
+###
 #Update the product
 PUT http://localhost:2000/api/v1/product/618274e62faceb8cdc940b0b
 Content-Type: application/json
@@ -92,3 +96,39 @@ Content-Type: application/json
 ###
 #Get Featured Product
 GET http://localhost:2000/api/v1/product/featured
+
+###
+#USER
+
+#Register User
+
+POST http://localhost:2000/api/v1/user/register
+Content-Type: application/json
+
+{"name":"Divines okezie",
+"email": "Divinesokezie76@gmail.com",
+"password": "123",
+"street": "HR Street",
+"apartment": "HR 2 ORC",
+"city":"P-H",
+"zip":"90099",
+"country": "Nigeria",
+"phone": "08075103883"
+}
+
+
+###
+#Get all User
+
+GET http://localhost:2000/api/v1/user/
+
+
+###
+#Login in user data
+POST http://localhost:2000/api/v1/user/login
+Content-Type: application/json
+
+{
+    "email": "Danielokezie75@gmail.com",
+    "password": "123"
+}

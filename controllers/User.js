@@ -1,5 +1,6 @@
 const user = require("../model/user");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 //@Desc Register a User
 //@Route POST api/v1/user/register
 //@Access Public
@@ -75,10 +76,12 @@ exports.loginUser = async (req, res, next) => {
         .status(401)
         .send(`The Email ${req.body.email} not Found`);
 
-    if (userData && bcrypt.compareSync(req.body.password, userData.password))
+    if (userData && bcrypt.compareSync(req.body.password, userData.password)) {
+      let token = jwt.sign({ userId: userData._id }, process.env.SECRET);
       return await res
         .status(200)
-        .send({ Message: `Welcome ${userData.name}` });
+        .send({ Message: `Welcome ${userData.name}`, token });
+    }
   } catch (err) {
     res.status(400).send(err);
   }

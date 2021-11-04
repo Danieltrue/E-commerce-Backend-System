@@ -1,6 +1,7 @@
 const morgan = require("morgan");
 const cors = require("cors");
 const helmet = require("helmet");
+const auth = require("./auth");
 
 module.exports = function middleware(app) {
   app.use(morgan("tiny"));
@@ -8,4 +9,5 @@ module.exports = function middleware(app) {
   app.use(cors());
   app.options("*", cors());
   app.use(helmet());
+  app.use(auth());
 };

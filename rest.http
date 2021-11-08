@@ -98,7 +98,7 @@ Content-Type: application/json
 GET http://localhost:2000/api/v1/product/featured
 
 ###
-#USER
+#USER USER 
 
 #Register User
 
@@ -113,7 +113,8 @@ Content-Type: application/json
 "city":"P-H",
 "zip":"90099",
 "country": "Nigeria",
-"phone": "08075103883"
+"phone": "08075103883",
+"isAdmin": true
 }
 
 
@@ -131,4 +132,22 @@ Content-Type: application/json
 {
     "email": "Danielokezie75@gmail.com",
     "password": "123"
+}
+
+#ORDER 
+###
+POST http://localhost:2000/api/v1/order
+Content-Type: application/json
+
+{
+    "orderitem": "Addidas Resolve",
+    "quantity": 2,
+    "shippingaddress": "Street one",
+    "shippingaddress2": "Street Two",
+    "city": "Abuja",
+    "zip": "90099",
+    "country": "Tree man Country",
+    "phone": 123456789,
+    "totalPrice": 12.2,
+    "user": "Daniel Okezie"
 }

@@ -77,7 +77,10 @@ exports.loginUser = async (req, res, next) => {
         .send(`The Email ${req.body.email} not Found`);
 
     if (userData && bcrypt.compareSync(req.body.password, userData.password)) {
-      let token = jwt.sign({ userId: userData._id }, process.env.SECRET);
+      let token = jwt.sign(
+        { userId: userData._id, isAdmin: user.isAdmin },
+        process.env.SECRET
+      );
       return await res
         .status(200)
         .send({ Message: `Welcome ${userData.name}`, token });

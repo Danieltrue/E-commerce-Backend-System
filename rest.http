@@ -151,3 +151,20 @@ Content-Type: application/json
     "totalPrice": 12.2,
     "user": "Daniel Okezie"
 }
+
+#Get all order
+###
+GET http://localhost:2000/api/v1/order
+
+#update the status
+###
+PUT http://localhost:2000/api/v1/order/6188f6b5960fc2a5c1b6ff8d
+Content-Type: application/json
+
+{
+    "status": "Processing"
+}
+
+#Delete Order
+###
+DELETE  http://localhost:2000/api/v1/order/6188f6b5960fc2a5c1b6ff8d

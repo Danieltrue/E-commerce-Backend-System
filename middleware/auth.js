@@ -14,6 +14,8 @@ function auth() {
       `${api}user/login`,
       `${api}user/register`,
       `${api}order`,
+      { url: /\/api\/v1\/order(.*)/, methods: ["PUT", "OPTIONS"] },
+      { url: /\/api\/v1\/order(.*)/, methods: ["DELETE", "OPTIONS"] },
     ],
   });
 }

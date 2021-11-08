@@ -36,3 +36,52 @@ exports.placeOrder = async (req, res, next) => {
     res.status(500).send(err);
   }
 };
+//@Desc Get Order
+//@Route api/v1/order
+//@Access Private
+exports.getOrder = async (req, res, next) => {
+  try {
+    const orderData = await order
+      .find()
+      .populate("user", "name -_id")
+      .populate("orderitem", "name -_id");
+
+    res.status(200).send({
+      success: true,
+      data: orderData,
+    });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+//@Desc Change the Order Status
+//@Route api/v1/order/:id
+//@Access Private
+exports.changeOrderStatus = async (req, res, next) => {
+  try {
+    const orderData = await order.findByIdAndUpdate(
+      req.params.id,
+      {
+        status: req.body.status,
+      },
+      { new: true }
+    );
+
+    if (!orderData) res.status(404).send("Order Not Found");
+    res.status(200).send(orderData);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+//@Desc Delete the Order
+//@Route api/v1/order/:id
+//@Access Private
+exports.deleteOrder = async (req, res, next) => {
+  try {
+    const orderData = await order.findByIdAndDelete(req.params.id);
+    if (!orderData) res.status(404).send("Order Not Found");
+    res.status(200).send(orderData);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};

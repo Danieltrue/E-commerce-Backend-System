@@ -16,7 +16,12 @@ const {
   updateCategory,
 } = require("../controllers/Category");
 const { registerUser, getAllUser, loginUser } = require("../controllers/User");
-const { placeOrder } = require("../controllers/Order");
+const {
+  placeOrder,
+  getOrder,
+  changeOrderStatus,
+  deleteOrder,
+} = require("../controllers/Order");
 //product route
 router.route("/product").post(addProduct).get(getProduct);
 router.route("/product/featured").get(featuredProduct);
@@ -33,6 +38,7 @@ router.route("/user/register").post(registerUser);
 router.route("/user/login").post(loginUser);
 router.route("/user").get(getAllUser);
 //order route
-router.route("/order").post(placeOrder);
+router.route("/order").post(placeOrder).get(getOrder);
+router.route("/order/:id").put(changeOrderStatus).delete(deleteOrder);
 
 module.exports = router;
